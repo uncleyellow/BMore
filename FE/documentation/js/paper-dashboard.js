@@ -4,10 +4,10 @@
   * Paper Dashboard PRO - V1.2.1
   =========================================================
 
-  * Product Page: https://www.creative-tim.com/product/paper-dashboard-pro
-  * Available with purchase of license from https://www.creative-tim.com/product/paper-dashboard-pro
-  * Copyright 2017 Creative Tim (https://www.creative-tim.com)
-  * License Creative Tim (https://www.creative-tim.com/license)
+  * Product Page: https://www.facebook.com/profile.php?id=100016416612676/product/paper-dashboard-pro
+  * Available with purchase of license from https://www.facebook.com/profile.php?id=100016416612676/product/paper-dashboard-pro
+  * Copyright 2017 Creative Tim (https://www.facebook.com/profile.php?id=100016416612676)
+  * License Creative Tim (https://www.facebook.com/profile.php?id=100016416612676/license)
 
   =========================================================
 

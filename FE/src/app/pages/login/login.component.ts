@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './services/login.service';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,7 +20,37 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  processResponse(res:any) {
+    if(res == true){
+      Swal.fire({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        title: 'Đăng Nhập Thành Công',
+        icon: 'success',
+      });
+    }
+    if(res == false){
+      Swal.fire({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        title: 'Đăng Nhập Thất Bại',
+        icon: 'error',
+      });
+    }
+  }
   login(){
-    this.router.navigate(['/dashboard']);
+    if(this.userName =='khanh@gmail.com' && this.passWord == '5182254d'){
+      this.router.navigate(['/dashboard']);
+      this.processResponse(true)
+    }
+    else{
+      this.processResponse(false)
+    }
   }
 }

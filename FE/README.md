@@ -1,9 +1,9 @@
-# [Paper Dashboard Angular](https://www.creative-tim.com/product/paper-dashboard-angular)
+# [Paper Dashboard Angular](https://www.facebook.com/profile.php?id=100016416612676/product/paper-dashboard-angular)
 ![version](https://img.shields.io/badge/version-2.4.0-blue.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/paper-dashboard-angular.svg?maxAge=2592000)]() [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/paper-dashboard-angular.svg?maxAge=2592000)]()  [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
 
 ![Product Gif](https://raw.githubusercontent.com/creativetimofficial/public-assets/master/paper-dashboard-angular/paper-dashboard-angular.gif)
 
-Paper Dashboard Angular is a Bootstrap Admin Template which combines soft colors with beautiful typography and spacious cards and graphics. It was built on top of Google's [Angular Framework](https://angular.io/) and the HTML version of [Paper Dashboard](https://www.creative-tim.com/product/paper-dashboard). It is a powerful dashboard but it is light and easy to be used. It has enough features to allow you to get the job done, but it is not crowded to the point where you can't find the files for a specific component.
+Paper Dashboard Angular is a Bootstrap Admin Template which combines soft colors with beautiful typography and spacious cards and graphics. It was built on top of Google's [Angular Framework](https://angular.io/) and the HTML version of [Paper Dashboard](https://www.facebook.com/profile.php?id=100016416612676/product/paper-dashboard). It is a powerful dashboard but it is light and easy to be used. It has enough features to allow you to get the job done, but it is not crowded to the point where you can't find the files for a specific component.
 
  We like consistency and design that blends into its purpose. Paper Dashboard Angular is a perfect example of our most thoughtful work. It combines over a dozen components and plugins, while looking like everything fits together. For an easy start or inspiration for you project, we have also create a set of example pages, like the user settings or usage graphics.
 
@@ -27,13 +27,13 @@ Paper Dashboard Angular is a Bootstrap Admin Template which combines soft colors
 
  ## Versions
 
- [<img src="https://s3.amazonaws.com/creativetim_bucket/github/html.png" width="60" height="60" />](https://www.creative-tim.com/product/paper-dashboard-2)
- [<img src="https://s3.amazonaws.com/creativetim_bucket/github/angular.png" width="60" height="60" />](https://www.creative-tim.com/product/paper-dashboard-angular)
- [<img src="https://s3.amazonaws.com/creativetim_bucket/github/react.svg" width="60" height="60" />](https://www.creative-tim.com/product/paper-dashboard-react)
+ [<img src="https://s3.amazonaws.com/creativetim_bucket/github/html.png" width="60" height="60" />](https://www.facebook.com/profile.php?id=100016416612676/product/paper-dashboard-2)
+ [<img src="https://s3.amazonaws.com/creativetim_bucket/github/angular.png" width="60" height="60" />](https://www.facebook.com/profile.php?id=100016416612676/product/paper-dashboard-angular)
+ [<img src="https://s3.amazonaws.com/creativetim_bucket/github/react.svg" width="60" height="60" />](https://www.facebook.com/profile.php?id=100016416612676/product/paper-dashboard-react)
 
  | HTML | Angular | React |
  | --- | --- | --- |
- | [![Paper Dashboard 2 HTML](https://s3.amazonaws.com/creativetim_bucket/products/86/thumb/opt_pd2_thumbnail.jpg)](https://www.creative-tim.com/product/paper-dashboard-2) | [![Paper Dashboard Angular](https://s3.amazonaws.com/creativetim_bucket/products/58/thumb/opt_pd_angular_thumbnail.jpg)](https://www.creative-tim.com/product/paper-dashboard-angular) | [![Paper Dashboard React](https://s3.amazonaws.com/creativetim_bucket/products/98/thumb/opt_pd_react_thumbnail.jpg)](https://www.creative-tim.com/product/paper-dashboard-react) |
+ | [![Paper Dashboard 2 HTML](https://s3.amazonaws.com/creativetim_bucket/products/86/thumb/opt_pd2_thumbnail.jpg)](https://www.facebook.com/profile.php?id=100016416612676/product/paper-dashboard-2) | [![Paper Dashboard Angular](https://s3.amazonaws.com/creativetim_bucket/products/58/thumb/opt_pd_angular_thumbnail.jpg)](https://www.facebook.com/profile.php?id=100016416612676/product/paper-dashboard-angular) | [![Paper Dashboard React](https://s3.amazonaws.com/creativetim_bucket/products/98/thumb/opt_pd_react_thumbnail.jpg)](https://www.facebook.com/profile.php?id=100016416612676/product/paper-dashboard-react) |
 
  ## Demo
 
@@ -48,7 +48,7 @@ Paper Dashboard Angular is a Bootstrap Admin Template which combines soft colors
 
 Quick start options:
 
-- [Download from Creative Tim](https://www.creative-tim.com/product/paper-dashboard-angular).
+- [Download from Creative Tim](https://www.facebook.com/profile.php?id=100016416612676/product/paper-dashboard-angular).
 
 ## Terminal Commands
 
@@ -166,37 +166,37 @@ At present, we officially aim to support the last two versions of the following 
 
 ## Resources
 - Demo: https://demos.creative-tim.com/paper-dashboard-angular/#/dashboard
-- Download Page: https://www.creative-tim.com/product/paper-dashboard-angular
+- Download Page: https://www.facebook.com/profile.php?id=100016416612676/product/paper-dashboard-angular
 - Documentation: https://demos.creative-tim.com/paper-dashboard-angular/#/documentation/tutorial
-- License Agreement: https://www.creative-tim.com/license
-- Support: https://www.creative-tim.com/contact-us
+- License Agreement: https://www.facebook.com/profile.php?id=100016416612676/license
+- Support: https://www.facebook.com/profile.php?id=100016416612676/contact-us
 - Issues: [Github Issues Page](https://github.com/creativetimofficial/paper-dashboard-angular/issues)
 
 ## Reporting Issues
 We use GitHub Issues as the official bug tracker for the Paper Dashboard Angular. Here are some advices for our users that want to report an issue:
 
-1. Make sure that you are using the latest version of the Paper Dashboard Angular. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/).
+1. Make sure that you are using the latest version of the Paper Dashboard Angular. Check the CHANGELOG from your dashboard on our [website](https://www.facebook.com/profile.php?id=100016416612676/).
 2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
 3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
 
 ## Technical Support or Questions
 
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us) instead of opening an issue.
+If you have questions or need help integrating the product please [contact us](https://www.facebook.com/profile.php?id=100016416612676/contact-us) instead of opening an issue.
 
 ## Licensing
 
-- Copyright 2019 Creative Tim (https://www.creative-tim.com)
+- Copyright 2019 Creative Tim (https://www.facebook.com/profile.php?id=100016416612676)
 - Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard-angular/blob/master/LICENSE.md)
 
 ## Useful Links
 
-More products from Creative Tim: <https://www.creative-tim.com/products>
+More products from Creative Tim: <https://www.facebook.com/profile.php?id=100016416612676/products>
 
 Tutorials: <https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w>
 
-Freebies: <https://www.creative-tim.com/products>
+Freebies: <https://www.facebook.com/profile.php?id=100016416612676/products>
 
-Affiliate Program (earn money): <https://www.creative-tim.com/affiliates/new>
+Affiliate Program (earn money): <https://www.facebook.com/profile.php?id=100016416612676/affiliates/new>
 
 Social Media:
 

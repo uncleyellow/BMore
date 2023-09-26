@@ -24,6 +24,8 @@
 }
 
 .social_icon span {
+  position: relative;
+  top: 30px;
   font-size: 60px;
   margin-left: 10px;
   color: #0b85ee;

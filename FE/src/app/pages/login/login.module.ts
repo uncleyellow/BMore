@@ -9,13 +9,15 @@ import { MaterialModule } from 'app/material/material.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(LoginRoutes),
     FormsModule,
     NgbModule,
-    MaterialModule
+    MaterialModule,
   ]
 })
 export class LoginModule { }

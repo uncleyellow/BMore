@@ -14,7 +14,7 @@ import { AppRoutes } from './app.routing';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from "./pages/login/login.component";
 import { MaterialModule } from './material/material.module';
-
+import { FormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -33,7 +33,8 @@ import { MaterialModule } from './material/material.module';
     ToastrModule.forRoot(),
     FooterModule,
     FixedPluginModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

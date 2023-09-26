@@ -16,6 +16,10 @@ import { UpgradeComponent }         from '../../pages/upgrade/upgrade.component'
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from 'app/material/material.module';
+import { AboutUsComponent } from 'app/pages/about-us/about-us.component';
+import { ReservationsComponent } from 'app/pages/reservations/reservations.component';
+import { RoomsComponent } from 'app/pages/rooms/rooms.component';
+import { RoomsManagementComponent } from 'app/pages/rooms-management/rooms-management.component';
 
 @NgModule({
   imports: [
@@ -34,6 +38,10 @@ import { MaterialModule } from 'app/material/material.module';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
+    AboutUsComponent,
+    ReservationsComponent,
+    RoomsComponent,
+    RoomsManagementComponent
   ]
 })
 
