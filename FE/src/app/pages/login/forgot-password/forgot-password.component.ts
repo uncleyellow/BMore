@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from 'express';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
+  email: any
 
-  constructor() { }
+  constructor(
 
-  ngOnInit(): void {
+  ) {
+
   }
 
+  ngOnInit(): void {
+
+  }
+  sendMail() {
+
+  }
 }

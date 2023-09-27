@@ -25,8 +25,7 @@ export const AppRoutes: Routes = [
     ]
   },
   {
-    path: 'login',
-    component: LoginComponent,
+    path: '',
     children: [
       {
         path: '',
