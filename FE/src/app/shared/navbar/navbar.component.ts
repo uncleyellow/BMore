@@ -2,6 +2,7 @@ import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/co
 import { ROUTES } from '../../sidebar/sidebar.component';
 import { Router } from '@angular/router';
 import { Location} from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
     moduleId: module.id,
@@ -91,5 +92,32 @@ export class NavbarComponent implements OnInit{
         }
 
       }
-
+      logOut(){
+        this.processResponse(true)
+        this.router.navigate(['/login']);
+      }
+      processResponse(res: any) {
+        if (res == true) {
+          Swal.fire({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            title: 'Đăng Xuất Thành Công',
+            icon: 'success',
+          });
+        }
+        if (res == false) {
+          Swal.fire({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            title: 'Đăng Xuất Thất Bại',
+            icon: 'error',
+          });
+        }
+      }
 }

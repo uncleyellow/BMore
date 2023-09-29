@@ -1,1 +1,66 @@
-<p>rooms-management works!</p>
+<!-- table  -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header d-flex">
+        <h4 class="card-title">Các phòng đang đặt</h4>
+        <div class="input-group no-border col-4">
+          <input type="text" class="form-control" placeholder="Tìm kiếm Người đặt" [(ngModel)]="searchParam" (keydown.enter)="search(searchParam)">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <i class="nc-icon nc-zoom-split" (click)="search(searchParam)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                Id
+              </th>
+              <th>
+                Người đặt
+              </th>
+              <th>
+                Số phòng đặt
+              </th>
+              <th>
+                Ngày Check In
+              </th>
+              <th>
+                Ngày Check Out
+              </th>
+              <th class="text-right">
+                Thanh toán
+              </th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  1
+                </td>
+                <td>
+                  Dương Đình Khánh
+                </td>
+                <td>
+                  5
+                </td>
+                <td>
+                  29/09/2023
+                </td>
+                <td>
+                  8/10/2023
+                </td>
+                <td class="text-right">
+                  10.000.000 VNĐ
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

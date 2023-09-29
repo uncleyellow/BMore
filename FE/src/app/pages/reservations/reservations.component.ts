@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReservationsService } from '../services/reservations.service';
 
 @Component({
   selector: 'app-reservations',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reservations.component.css']
 })
 export class ReservationsComponent implements OnInit {
+  searchParam: any
+  constructor(
+    public reservationsServices: ReservationsService
+  ) {
 
-  constructor() { }
-
-  ngOnInit(): void {
   }
 
+  ngOnInit(): void {
+
+  }
+
+  search(searchParam:any){
+
+  }
+
+  fetch(){
+
+  }
 }

@@ -6,10 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rooms-management.component.css']
 })
 export class RoomsManagementComponent implements OnInit {
+  searchParam:any
+  constructor(
 
-  constructor() { }
+  ) {
 
-  ngOnInit(): void {
   }
 
+  ngOnInit(): void {
+
+  }
+
+  search(searchParam){
+
+  }
+
+  fetch(){
+
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../services/users.service';
 
 @Component({
     selector: 'user-cmp',
@@ -7,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class UserComponent implements OnInit{
+  constructor(
+    public userServices:UsersService
+  ){
+
+  }
     ngOnInit(){
+
     }
 }
