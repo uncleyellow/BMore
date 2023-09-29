@@ -18,8 +18,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from 'app/material/material.module';
 import { AboutUsComponent } from 'app/pages/about-us/about-us.component';
 import { ReservationsComponent } from 'app/pages/reservations/reservations.component';
-import { RoomsComponent } from 'app/pages/rooms/rooms.component';
 import { RoomsManagementComponent } from 'app/pages/rooms-management/rooms-management.component';
+import { BookNewRoomsComponent } from 'app/pages/bookRooms/book-new-rooms/book-new-rooms.component';
+import { DeleteBookRoomComponent } from 'app/pages/bookRooms/delete-book-room/delete-book-room.component';
+import { PutBookRoomComponent } from 'app/pages/bookRooms/put-book-room/put-book-room.component';
 
 @NgModule({
   imports: [
@@ -40,8 +42,10 @@ import { RoomsManagementComponent } from 'app/pages/rooms-management/rooms-manag
     NotificationsComponent,
     AboutUsComponent,
     ReservationsComponent,
-    RoomsComponent,
-    RoomsManagementComponent
+    RoomsManagementComponent,
+    BookNewRoomsComponent,
+    DeleteBookRoomComponent,
+    PutBookRoomComponent,
   ]
 })
 

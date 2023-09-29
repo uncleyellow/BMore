@@ -32,8 +32,11 @@
               <th>
                 Ngày Check Out
               </th>
-              <th class="text-right">
+              <th>
                 Thanh toán
+              </th>
+              <th class="text-right">
+                Hành động
               </th>
             </thead>
             <tbody>
@@ -53,8 +56,12 @@
                 <td>
                   8/10/2023
                 </td>
-                <td class="text-right">
+                <td>
                   10.000.000 VNĐ
+                </td>
+                <td class="text-right d-flex justify-content-around">
+                  <mat-icon style="cursor: pointer;" (click)="fixBookRoom()">build</mat-icon>
+                  <mat-icon style="cursor: pointer;" (click)="deleteBookRoom()">delete</mat-icon>
                 </td>
               </tr>
             </tbody>

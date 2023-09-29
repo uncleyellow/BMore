@@ -10,7 +10,6 @@ import { NotificationsComponent } from '../../pages/notifications/notifications.
 import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { AboutUsComponent } from 'app/pages/about-us/about-us.component';
 import { ReservationsComponent } from 'app/pages/reservations/reservations.component';
-import { RoomsComponent } from 'app/pages/rooms/rooms.component';
 import { RoomsManagementComponent } from 'app/pages/rooms-management/rooms-management.component';
 
 
@@ -25,6 +24,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'aboutUs',      component: AboutUsComponent },
     { path: 'reservations',      component: ReservationsComponent },
-    { path: 'rooms',      component: RoomsComponent },
     { path: 'roomsManagement',      component: RoomsManagementComponent },
 ];
