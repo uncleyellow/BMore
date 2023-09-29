@@ -1,1 +1,16 @@
-<p>delete-book-room works!</p>
+<div class="dialog-content-wrapper">
+  <mat-toolbar matDialogTitle class="mat-accent m-0 ">
+      <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+          <span class="title dialog-title">Xoá phòng đã đặt</span>
+          <button mat-button class="mat-icon-button" tabindex="-1" (click)="dialogRef.close()"
+              aria-label="Close dialog">
+              <mat-icon>close</mat-icon>
+          </button>
+      </div>
+  </mat-toolbar>
+  <div mat-dialog-content class="dialog-content">Bạn có đồng ý xoá phòng này không</div>
+  <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="center">
+      <button mat-raised-button class="mat-accent mr-16" (click)="dialogRef.close(true)">Xác nhận</button>
+      <button mat-button class="mat-raised-button mat-warn" (click)="dialogRef.close(false)">Huỷ bỏ</button>
+  </div>
+</div>

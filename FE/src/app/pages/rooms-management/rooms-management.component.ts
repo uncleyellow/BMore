@@ -52,7 +52,7 @@ export class RoomsManagementComponent implements OnInit {
   });
 
   dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
+      if (result == true) {
           this.fetch();
       }
   });
