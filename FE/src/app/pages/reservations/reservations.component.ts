@@ -32,7 +32,8 @@ export class ReservationsComponent implements OnInit {
 
   fixBookRoom(){
     let dialogRef = this.dialog.open(PutBookRoomComponent, {
-      panelClass: "add-processcode-dialog",
+      height: '325px',
+      width: '400px',
       data: {
           title: 'Thông tin đặt phòng',
       },

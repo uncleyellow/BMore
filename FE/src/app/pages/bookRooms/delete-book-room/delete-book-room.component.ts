@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ReservationsService } from 'app/pages/services/reservations.service';
 
 @Component({
   selector: 'app-delete-book-room',
@@ -11,6 +12,7 @@ export class DeleteBookRoomComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<DeleteBookRoomComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    public reservationsService: ReservationsService
   ) {
 
   }
@@ -18,7 +20,8 @@ export class DeleteBookRoomComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  save() {
 
+  save() {
+    this.dialogRef.close(true)
   }
 }

@@ -11,6 +11,7 @@ import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { AboutUsComponent } from 'app/pages/about-us/about-us.component';
 import { ReservationsComponent } from 'app/pages/reservations/reservations.component';
 import { RoomsManagementComponent } from 'app/pages/rooms-management/rooms-management.component';
+import { HotelComponent } from 'app/pages/hotel/hotel.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -25,4 +26,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'aboutUs',      component: AboutUsComponent },
     { path: 'reservations',      component: ReservationsComponent },
     { path: 'roomsManagement',      component: RoomsManagementComponent },
+    { path: 'hotel',      component: HotelComponent },
 ];

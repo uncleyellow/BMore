@@ -22,6 +22,7 @@ import { RoomsManagementComponent } from 'app/pages/rooms-management/rooms-manag
 import { BookNewRoomsComponent } from 'app/pages/bookRooms/book-new-rooms/book-new-rooms.component';
 import { DeleteBookRoomComponent } from 'app/pages/bookRooms/delete-book-room/delete-book-room.component';
 import { PutBookRoomComponent } from 'app/pages/bookRooms/put-book-room/put-book-room.component';
+import { HotelComponent } from 'app/pages/hotel/hotel.component';
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import { PutBookRoomComponent } from 'app/pages/bookRooms/put-book-room/put-book
     BookNewRoomsComponent,
     DeleteBookRoomComponent,
     PutBookRoomComponent,
+    HotelComponent
   ]
 })
 

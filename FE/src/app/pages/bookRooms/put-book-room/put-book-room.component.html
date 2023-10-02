@@ -1,1 +1,41 @@
-<p>put-book-room works!</p>
+<mat-dialog-content>
+  <form>
+    <div class="row d-flex justify-content-around">
+      <div class="form-group col-6">
+        <label for="exampleInputEmail1">Tên người đặt</label>
+        <input type="text" class="form-control" placeholder="Tên người đặt" value="Đình Khánh" readonly [(ngModel)]="userName">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+      <div class="form-group col-6">
+        <label for="exampleInputEmail1">Số phòng cần đặt</label>
+        <input type="number" class="form-control" placeholder="Số phòng cần đặt" min="0" max="100" [(ngModel)]="numbersRoomBooked">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+    </div>
+    <div class="row d-flex justify-content-around">
+      <div class="form-group col-6">
+        <label for="checkInDate">Ngày Check In</label>
+        <input type="date" class="form-control" id="checkInDate" [min]="currentDate" placeholder="Ngày Check In" [(ngModel)]="checkInDate">
+      </div>
+      <div class="form-group col-6">
+        <label for="checkOutDate">Ngày Check Out</label>
+        <input type="date" class="form-control" id="checkOutDate" [min]="minCheckOutDate" placeholder="Ngày Check Out" [(ngModel)]="checkOutDate">
+      </div>
+    </div>
+    <div class="row d-flex justify-content-around">
+      <div class="form-group col-12">
+        <label for="exampleInputEmail1">Tổng số tiền phải thanh toán (VNĐ)</label>
+        <input type="number" class="form-control" value="10 000 000" readonly [(ngModel)]="totalPrice">
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<div class="buttons d-flex justify-content-around">
+  <mat-dialog-actions align="start">
+    <button mat-raised-button color="primary" mat-dialog-close tabindex="-1" (click)="save()">Lưu</button>
+  </mat-dialog-actions>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" mat-dialog-close tabindex="-1">Huỷ</button>
+  </mat-dialog-actions>
+</div>
