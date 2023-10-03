@@ -19,6 +19,9 @@ export class BookNewRoomsComponent implements OnInit {
 
   }
   save() {
-
+    this.dialogRef.close("Thêm mới thành công");
+  }
+  cancel(){
+    this.dialogRef.close("Thêm mới Thất Bại");
   }
 }

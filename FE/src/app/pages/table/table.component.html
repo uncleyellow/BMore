@@ -1,3 +1,33 @@
+<!-- search  -->
+<div class="row">
+  <div class="card">
+    <div class="card-header d-flex">
+      <div class="input-group no-border col-4">
+        <input type="text" class="form-control" placeholder="Tìm kiếm Khách sạn" [(ngModel)]="searchParam"
+          (keydown.enter)="search(searchParam)">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <i class="nc-icon nc-zoom-split" (click)="search(searchParam)"></i>
+          </div>
+        </div>
+      </div>
+      <div class="input-group no-border col-4">
+        <mat-select class="form-control" placeholder="Địa điểm" [(value)]="selected" [(ngModel)]="searchByPlaceParam"
+          (closed)="searchByPlace(searchByPlaceParam)">
+          <mat-option value="Hà Nội">Hà Nội</mat-option>
+          <mat-option value="Cát Bà">Cát Bà</mat-option>
+          <mat-option value="Thanh Hoá">Thanh Hoá</mat-option>
+          <mat-option value="Thanh Hoá">Thanh Hoá</mat-option>
+          <mat-option value="Thanh Hoá">Thanh Hoá</mat-option>
+          <mat-option value="Thanh Hoá">Thanh Hoá</mat-option>
+          <mat-option value="Thanh Hoá">Thanh Hoá</mat-option>
+          <mat-option value="Thanh Hoá">Thanh Hoá</mat-option>
+        </mat-select>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Hotels  -->
 <div class="row">
   <div class="col-lg-3 col-md-6 col-sm-6">
     <div class="card card-stats">
@@ -17,19 +47,25 @@
             </div>
           </div>
         </div>
-        <div class="row"
-        style="position: relative; top: 10px;">
+        <div class="row" style="position: relative; top: 10px;">
           <div class="col-12 col-md-12">
+            <div class="numbers d-flex justify-content-center align-items-center">
+              <mat-icon> location_on</mat-icon>
+              <p class="card-category">Địa điểm: </p>
+              <p class="card-title">Hà Nội
+              <p>
+            </div>
+            <br>
             <div class="numbers d-flex justify-content-start align-items-center">
               <p class="card-category">Đánh giá: </p>
               <p class="card-title"><mat-icon style="color: yellow;">star</mat-icon>
-                <p>
+              <p>
             </div>
             <br>
             <div class="numbers d-flex justify-content-center">
               <p class="card-category">Số phòng còn lại: </p>
               <p class="card-title">150
-                <p>
+              <p>
             </div>
           </div>
         </div>
@@ -45,4 +81,3 @@
     </div>
   </div>
 </div>
-

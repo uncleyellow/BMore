@@ -1,1 +1,7 @@
-<p>delete-book-room works!</p>
+<mat-dialog-content>
+  {{message}}
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-raised-button color="primary" mat-dialog-close tabindex="-1" (click)="save()">Lưu</button>
+  <button mat-raised-button color="primary" mat-dialog-close tabindex="-1" (click)="cancel()">{{cancelButtonText}}</button>
+</mat-dialog-actions>

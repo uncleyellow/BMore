@@ -18,6 +18,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/reservations',    title: 'Phòng đã đặt',        icon:'nc-basket', class: '' },
     { path: '/aboutUs',    title: 'Về chúng tôi',        icon:'nc-badge', class: 'active-pro' },
     { path: '/roomsManagement',    title: 'Quản lý các phòng',        icon:'nc-briefcase-24', class: '' },
+    { path: '/employees',    title: 'Quản lý nhân viên',        icon:'nc-briefcase-24', class: '' },
     { path: '/user',          title: 'Thông tin người dùng',      icon:'nc-single-02',  class: '' },
     // { path: '/upgrade',       title: 'Upgrade to PRO',    icon:'nc-spaceship',  class: 'active-pro' },
 ];

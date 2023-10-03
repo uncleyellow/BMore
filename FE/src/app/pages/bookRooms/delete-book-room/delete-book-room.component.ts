@@ -7,6 +7,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./delete-book-room.component.css']
 })
 export class DeleteBookRoomComponent implements OnInit {
+  message: string = "Bạn có đồng ý xoá không ?"
+  cancelButtonText = "Cancel"
 
   constructor(
     public dialogRef: MatDialogRef<DeleteBookRoomComponent>,
@@ -19,6 +21,9 @@ export class DeleteBookRoomComponent implements OnInit {
 
   }
   save() {
-
+    this.dialogRef.close("Xoá thành công");
+  }
+  cancel(){
+    this.dialogRef.close("Xoá Thất Bại");
   }
 }

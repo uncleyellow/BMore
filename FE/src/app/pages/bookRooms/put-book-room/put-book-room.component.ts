@@ -16,7 +16,12 @@ export class PutBookRoomComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  save() {
 
+  save() {
+    this.dialogRef.close("Sửa thành công");
+  }
+
+  cancel(){
+    this.dialogRef.close("Sửa Thất Bại");
   }
 }
