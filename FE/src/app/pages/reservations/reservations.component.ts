@@ -22,6 +22,7 @@ export class ReservationsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    debugger
     this.fetch()
   }
 

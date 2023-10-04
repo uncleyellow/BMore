@@ -29,13 +29,13 @@
 </div>
 <!-- Hotels  -->
 <div class="row">
-  <div class="col-lg-3 col-md-6 col-sm-6">
+  <div class="col-lg-4 col-md-6 col-sm-6">
     <div class="card card-stats">
-      <div class="card-body ">
+      <div class="card-body" (click)="hotelDetails(items)">
         <div class="row" style="position: relative; bottom: 15px;">
           <div class="col-12 col-md-12">
             <div class="numbers d-flex justify-content-center">
-              <p class="card-category">Doflamingo Cát Bà</p>
+              <p class="card-title">Doflamingo Cát Bà</p>
             </div>
           </div>
         </div>
@@ -60,6 +60,13 @@
               <p class="card-category">Đánh giá: </p>
               <p class="card-title"><mat-icon style="color: yellow;">star</mat-icon>
               <p>
+            </div>
+            <br>
+            <div class="numbers d-flex justify-content-start align-items-center">
+              <p class="card-category">Giá (VNĐ):</p>
+              <p class="card-title">150.000
+              <p>
+              <p class="card-category">Phòng/Ngày</p>
             </div>
             <br>
             <div class="numbers d-flex justify-content-center">

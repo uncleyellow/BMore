@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HotelsService } from '../services/hotels.service';
 import { MatDialog } from '@angular/material/dialog';
 import { BookNewRoomsComponent } from '../bookRooms/book-new-rooms/book-new-rooms.component';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 declare interface TableData {
   headerRow: string[];
@@ -25,6 +27,7 @@ export class TableComponent implements OnInit {
   constructor(
     public HotelsService: HotelsService,
     public dialog: MatDialog,
+    private router: Router
   ) {
 
   }
@@ -45,6 +48,7 @@ export class TableComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.fetch();
+        this.processResponse(result)
       }
     });
   }
@@ -56,4 +60,35 @@ export class TableComponent implements OnInit {
   search(searchParam: any) {
 
   }
+
+  processResponse(res:any) {
+    if(res == 'Thêm mới thành công'){
+      Swal.fire({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        title: 'Thêm mới Thành Công',
+        icon: 'success',
+      });
+    }
+
+    else{
+      Swal.fire({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        title: 'Thêm mới Thất Bại',
+        icon: 'error',
+      });
+    }
+  }
+
+  hotelDetails(items: any){
+    this.router.navigate(['/hotels']);
+  }
+
 }

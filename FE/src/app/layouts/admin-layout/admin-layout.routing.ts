@@ -12,6 +12,7 @@ import { AboutUsComponent } from 'app/pages/about-us/about-us.component';
 import { ReservationsComponent } from 'app/pages/reservations/reservations.component';
 import { RoomsManagementComponent } from 'app/pages/rooms-management/rooms-management.component';
 import { EmployeesComponent } from 'app/pages/employees/employees.component';
+import { HotelsComponent } from 'app/pages/hotels/hotels.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -27,4 +28,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'reservations',      component: ReservationsComponent },
     { path: 'roomsManagement',      component: RoomsManagementComponent },
     { path: 'employees',      component: EmployeesComponent },
+    { path: 'hotels',      component: HotelsComponent },
 ];
