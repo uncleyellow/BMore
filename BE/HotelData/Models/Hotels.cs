@@ -10,10 +10,10 @@ namespace HotelData.Models
         public decimal RoomNumbers { get; set; }
         public string Descriptions { get; set; }
         public string Picture { get; set; }
-        public int TotalRooms => Rooms?.Count ?? 0;
-        public int AvailableRooms => Rooms?.Count(r => r.Reservations.Count == 0) ?? 0;
-        public int BookedRooms => Rooms?.Count(r => r.Reservations.Count > 0) ?? 0;
-        public List<Room>? Rooms { get; set; }
-        public List<User>? Users { get; set; }
+        public DateTime CreatAt { get; set; }
+        public int TotalRooms { get; set; }
+        public int AvailableRooms { get; set; }
+        public int BookedRooms { get; set; }
+        public Guid UserId { get; set; }
     }
 }
