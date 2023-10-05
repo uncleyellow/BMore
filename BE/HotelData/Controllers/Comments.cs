@@ -1,34 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using HotelData.Context;
 using HotelData.Models;
-using HotelData.Context;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HotelData.Controllers
 {
     [ApiController]
-    [Route("api/users")]
-    public class UsersController : Controller
+    [Route("api/comments")]
+    public class CommentsController : Controller
     {
         private readonly DataContext _context;
 
-        public UsersController(DataContext context)
+        public CommentsController(DataContext context)
         {
             _context = context;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<Comments>>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Comments.ToListAsync();
         }
 
-        // GET: api/users/1
+        // GET: api/Comments/1
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(Guid id)
+        public async Task<ActionResult<Comments>> GetUser(Guid id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Comments.FindAsync(id);
 
             if (user == null)
             {
@@ -38,20 +35,20 @@ namespace HotelData.Controllers
             return user;
         }
 
-        // POST: api/users
+        // POST: api/Comments
         [HttpPost]
-        public async Task<ActionResult<User>> CreateUser(User user)
+        public async Task<ActionResult<Comments>> CreateUser(Comments user)
         {
             user.Id = Guid.NewGuid();
-            _context.Users.Add(user);
+            _context.Comments.Add(user);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
 
-        // PUT: api/users/1
+        // PUT: api/Comments/1
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(Guid id, User user)
+        public async Task<IActionResult> UpdateUser(Guid id, Comments user)
         {
             if (id != user.Id)
             {
@@ -79,17 +76,17 @@ namespace HotelData.Controllers
             return NoContent();
         }
 
-        // DELETE: api/users/1
+        // DELETE: api/Comments/1
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(Guid id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Comments.FindAsync(id);
             if (user == null)
             {
                 return NotFound();
             }
 
-            _context.Users.Remove(user);
+            _context.Comments.Remove(user);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -97,7 +94,7 @@ namespace HotelData.Controllers
 
         private bool UserExists(Guid id)
         {
-            return _context.Users.Any(u => u.Id == id);
+            return _context.Comments.Any(u => u.Id == id);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace HotelData.Controllers
 
         // GET: api/hotels/1
         [HttpGet("{id}")]
-        public async Task<ActionResult<Hotels>> GetHotel(int id)
+        public async Task<ActionResult<Hotels>> GetHotel(Guid id)
         {
             var hotel = await _context.Hotels.FindAsync(id);
 

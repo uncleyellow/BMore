@@ -1,34 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using HotelData.Context;
 using HotelData.Models;
-using HotelData.Context;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HotelData.Controllers
 {
     [ApiController]
-    [Route("api/users")]
-    public class UsersController : Controller
+    [Route("api/bills")]
+    public class BillsController : Controller
     {
         private readonly DataContext _context;
 
-        public UsersController(DataContext context)
+        public BillsController(DataContext context)
         {
             _context = context;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<Bills>>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Bills.ToListAsync();
         }
 
-        // GET: api/users/1
+        // GET: api/Bills/1
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(Guid id)
+        public async Task<ActionResult<Bills>> GetUser(Guid id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Bills.FindAsync(id);
 
             if (user == null)
             {
@@ -38,20 +35,20 @@ namespace HotelData.Controllers
             return user;
         }
 
-        // POST: api/users
+        // POST: api/Bills
         [HttpPost]
-        public async Task<ActionResult<User>> CreateUser(User user)
+        public async Task<ActionResult<Bills>> CreateUser(Bills user)
         {
             user.Id = Guid.NewGuid();
-            _context.Users.Add(user);
+            _context.Bills.Add(user);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
 
-        // PUT: api/users/1
+        // PUT: api/Bills/1
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(Guid id, User user)
+        public async Task<IActionResult> UpdateUser(Guid id, Bills user)
         {
             if (id != user.Id)
             {
@@ -83,13 +80,13 @@ namespace HotelData.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(Guid id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Bills.FindAsync(id);
             if (user == null)
             {
                 return NotFound();
             }
 
-            _context.Users.Remove(user);
+            _context.Bills.Remove(user);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -97,7 +94,7 @@ namespace HotelData.Controllers
 
         private bool UserExists(Guid id)
         {
-            return _context.Users.Any(u => u.Id == id);
+            return _context.Bills.Any(u => u.Id == id);
         }
     }
 }

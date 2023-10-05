@@ -4,6 +4,7 @@ namespace HotelData.Models
 {
     public class User
     {
+        [Key]
         public Guid Id { get; set; }
         public string userName { get; set; }
         public string Role { get; set; }
@@ -13,6 +14,9 @@ namespace HotelData.Models
         public decimal PhoneNumbers { get; set; }
         public decimal Pictures { get; set; }
         public DateTime CreatAt { get; set; }
+        public ICollection<Hotels> Hotels { get; set; }
+        public ICollection<Bills> Bills { get; set; }
+        public ICollection<Comments> Comments { get; set; }
 
     }
 }

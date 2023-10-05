@@ -4,6 +4,7 @@ namespace HotelData.Models
 {
     public class Hotels
     {
+        [Key]
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
@@ -15,5 +16,7 @@ namespace HotelData.Models
         public int AvailableRooms { get; set; }
         public int BookedRooms { get; set; }
         public Guid UserId { get; set; }
+        public User User { get; set; }
+        public ICollection<Room> Room { get; set; }
     }
 }
