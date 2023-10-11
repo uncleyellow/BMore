@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.fetch()
   }
   processResponse(res:any) {
     if(res == true){
@@ -52,5 +53,17 @@ export class LoginComponent implements OnInit {
     else{
       this.processResponse(false)
     }
+  }
+
+  fetch(){
+    this.loginService.getUsers().subscribe(
+      (data) => {
+        debugger
+        this.userName = data.userName;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

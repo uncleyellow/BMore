@@ -5,14 +5,14 @@ import { FormsModule } from '@angular/forms';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
 
-import { DashboardComponent }       from '../../pages/dashboard/dashboard.component';
-import { UserComponent }            from '../../pages/user/user.component';
-import { TableComponent }           from '../../pages/table/table.component';
-import { TypographyComponent }      from '../../pages/typography/typography.component';
-import { IconsComponent }           from '../../pages/icons/icons.component';
-import { MapsComponent }            from '../../pages/maps/maps.component';
-import { NotificationsComponent }   from '../../pages/notifications/notifications.component';
-import { UpgradeComponent }         from '../../pages/upgrade/upgrade.component';
+import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
+import { UserComponent } from '../../pages/user/user.component';
+import { TableComponent } from '../../pages/table/table.component';
+import { TypographyComponent } from '../../pages/typography/typography.component';
+import { IconsComponent } from '../../pages/icons/icons.component';
+import { MapsComponent } from '../../pages/maps/maps.component';
+import { NotificationsComponent } from '../../pages/notifications/notifications.component';
+import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from 'app/material/material.module';
@@ -24,6 +24,12 @@ import { DeleteBookRoomComponent } from 'app/pages/bookRooms/delete-book-room/de
 import { PutBookRoomComponent } from 'app/pages/bookRooms/put-book-room/put-book-room.component';
 import { EmployeesComponent } from 'app/pages/employees/employees.component';
 import { HotelsComponent } from 'app/pages/hotels/hotels.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BaseService } from 'app/pages/services/base.service';
+import { HotelsService } from 'app/pages/services/hotels.service';
+import { ReservationsService } from 'app/pages/services/reservations.service';
+import { RoomsService } from 'app/pages/services/rooms.service';
+import { UsersService } from 'app/pages/services/users.service';
 
 @NgModule({
   imports: [
@@ -31,7 +37,8 @@ import { HotelsComponent } from 'app/pages/hotels/hotels.component';
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     NgbModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
   ],
   declarations: [
     DashboardComponent,
@@ -50,7 +57,14 @@ import { HotelsComponent } from 'app/pages/hotels/hotels.component';
     PutBookRoomComponent,
     EmployeesComponent,
     HotelsComponent
+  ],
+  providers: [
+    BaseService,
+    HotelsService,
+    ReservationsService,
+    RoomsService,
+    UsersService
   ]
 })
 
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }

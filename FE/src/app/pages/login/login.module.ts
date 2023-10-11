@@ -8,6 +8,8 @@ import { MaterialModule } from 'app/material/material.module';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginService } from './services/login.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -23,6 +25,10 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     NgbModule,
     MaterialModule,
+    HttpClientModule
+  ],
+  providers: [
+    LoginService
   ]
 })
 export class LoginModule { }
