@@ -13,7 +13,7 @@ namespace HotelData.Models
         public Guid UserId { get; set; }
 
         public Guid HotelsId { get; set; }
-        public User User { get; set; }
+        public User? User { get; set; }
 
     }
 }

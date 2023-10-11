@@ -21,7 +21,21 @@ namespace HotelData.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            var lstUsers = await _context.Users.ToListAsync();
+            var lstIdUser = lstUsers.Select(x => x.Id).Distinct().ToList(); 
+            var lstHotels = await _context.Hotels.Where(x =>  lstIdUser.Contains(x.UserId ?? new Guid())).ToListAsync();
+
+            foreach (var item in lstHotels)
+            {
+                item.User = new User();
+            }
+
+            foreach (var item in lstUsers)
+            {
+                item.Hotels = lstHotels.Where(x => x.UserId.Equals(item.Id)).ToList();
+            }
+
+            return lstUsers;
         }
 
         // GET: api/users/1
@@ -57,26 +71,11 @@ namespace HotelData.Controllers
             {
                 return BadRequest();
             }
+           
+            _context.Entry<User>(user).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
 
-            _context.Entry(user).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return Ok(user);
         }
 
         // DELETE: api/users/1
@@ -92,7 +91,7 @@ namespace HotelData.Controllers
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok("Xoá Thành Công");
         }
 
         private bool UserExists(Guid id)

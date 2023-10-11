@@ -4,6 +4,7 @@ using HotelData.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelData.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20231005062905_Inits")]
+    partial class Inits
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,7 +85,6 @@ namespace HotelData.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Contents")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("HotelsId")
@@ -195,8 +197,8 @@ namespace HotelData.Migrations
                     b.Property<decimal?>("PhoneNumbers")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Pictures")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal?>("Pictures")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Role")
                         .IsRequired()

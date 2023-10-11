@@ -20,10 +20,10 @@ namespace HotelData.Migrations
                     Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PassWords = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhoneNumbers = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Pictures = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    CreatAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumbers = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    Pictures = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    CreatAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -58,7 +58,7 @@ namespace HotelData.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Contents = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Contents = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Rate = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     HotelsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
@@ -79,16 +79,16 @@ namespace HotelData.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RoomNumbers = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Descriptions = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Picture = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Descriptions = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Picture = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TotalRooms = table.Column<int>(type: "int", nullable: false),
                     AvailableRooms = table.Column<int>(type: "int", nullable: false),
                     BookedRooms = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -97,8 +97,7 @@ namespace HotelData.Migrations
                         name: "FK_Hotels_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -126,7 +125,7 @@ namespace HotelData.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RoomNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RoomNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),

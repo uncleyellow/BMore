@@ -9,6 +9,6 @@ namespace HotelData.Models
         public Guid BillsId { get; set; }
         public Guid RoomId { get; set; }
         public Guid HotelId { get; set; }
-        public Bills Bills { get; set; }
+        public Bills? Bills { get; set; }
     }
 }

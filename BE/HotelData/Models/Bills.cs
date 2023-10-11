@@ -12,7 +12,7 @@ namespace HotelData.Models
         public DateTime CheckOutDate { get; set; }
         public DateTime CreatAt { get; set; }
         public Guid UserId { get; set; }
-        public User User { get; set; }
-        public ICollection<BillsDetails> BillsDetails { get; set; }
+        public User? User { get; set; }
+        public ICollection<BillsDetails>? BillsDetails { get; set; }
     }
 }

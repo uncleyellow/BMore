@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelData.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231005033808_Inits")]
-    partial class Inits
+    [Migration("20231005083159_DbHotelV1")]
+    partial class DbHotelV1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -111,7 +111,6 @@ namespace HotelData.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("AvailableRooms")
@@ -124,15 +123,12 @@ namespace HotelData.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Descriptions")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Picture")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("RoomNumbers")
@@ -141,7 +137,7 @@ namespace HotelData.Migrations
                     b.Property<int>("TotalRooms")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -164,7 +160,6 @@ namespace HotelData.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("RoomNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Status")
@@ -187,10 +182,9 @@ namespace HotelData.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatAt")
+                    b.Property<DateTime?>("CreatAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
@@ -201,11 +195,11 @@ namespace HotelData.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("PhoneNumbers")
+                    b.Property<decimal?>("PhoneNumbers")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("Pictures")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("Pictures")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Role")
                         .IsRequired()
@@ -257,9 +251,7 @@ namespace HotelData.Migrations
                 {
                     b.HasOne("HotelData.Models.User", "User")
                         .WithMany("Hotels")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });
