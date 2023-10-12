@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
-import { ExampleComponent } from 'app/modules/admin/example/example.component';
 import { EmployeesComponent } from './employees.component';
+import { MaterialModule } from 'app/material/material.module';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 
 const employeesRoutes: Route[] = [
     {
@@ -12,9 +14,12 @@ const employeesRoutes: Route[] = [
 
 @NgModule({
     declarations: [
-        EmployeesComponent
+        EmployeesComponent,
+        AddEmployeeComponent,
+        DeleteEmployeeComponent
     ],
     imports     : [
+        MaterialModule,
         RouterModule.forChild(employeesRoutes)
     ]
 })
