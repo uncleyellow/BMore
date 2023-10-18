@@ -5,6 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using HotelData.Models;
 using HotelData.Context;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace HotelData.Controllers
 {
@@ -13,10 +18,12 @@ namespace HotelData.Controllers
     public class UsersController : Controller
     {
         private readonly DataContext _context;
+        private readonly IConfiguration _configuration;
 
-        public UsersController(DataContext context)
+        public UsersController(DataContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
@@ -98,5 +105,51 @@ namespace HotelData.Controllers
         {
             return _context.Users.Any(u => u.Id == id);
         }
+
+
+
+        [HttpPost("login")]
+        public async Task<ActionResult<string>> Login(LoginRequest request)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == request.Email && x.PassWords == request.PassWords);
+
+            if (user == null)
+            {
+                return Unauthorized("Invalid email or password.");
+            }
+
+            var token = GenerateAccessToken(user);
+            return Ok(token);
+        }
+
+        private string GenerateAccessToken(User user)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var secretKey = _configuration.GetValue<string>("Jwt:SecretKey");
+            var key = Encoding.ASCII.GetBytes(secretKey);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[]
+                {
+                    new Claim("userId", user.Id.ToString()),
+                    new Claim(ClaimTypes.Name, user.Email)
+                }),
+                Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
     }
+
+    // Model for login request
+    public class LoginRequest
+    {
+        public string Email { get; set; }
+        public string PassWords { get; set; }
+    }
+
+
 }
+

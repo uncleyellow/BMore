@@ -89,7 +89,7 @@ export class AuthForgotPasswordComponent implements OnInit
                     // Set the alert
                     this.alert = {
                         type   : 'success',
-                        message: 'Password reset sent! You\'ll receive an email if you are registered on our system.'
+                        message: 'Đặt lại mật khẩu thành công! Bạn sẽ nhận được thư trong Email của bạn nếu bạn đã đăng ký trong hệ thống của chúng tôi.'
                     };
                 },
                 (response) => {
@@ -97,7 +97,7 @@ export class AuthForgotPasswordComponent implements OnInit
                     // Set the alert
                     this.alert = {
                         type   : 'error',
-                        message: 'Email does not found! Are you sure you are already a member?'
+                        message: 'Email không tìm thấy trong hệ thống! Bạn có chắc đã đăng ký tài khoản của chúng tôi chưa?'
                     };
                 }
             );
