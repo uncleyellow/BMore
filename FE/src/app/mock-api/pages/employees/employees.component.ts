@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Configs } from '../ultis/config';
+import { PageEvent } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 export interface PeriodicElement {
     name: string;
@@ -28,7 +31,37 @@ const ELEMENT_DATA: PeriodicElement[] = [
     templateUrl: './employees.component.html',
     styleUrls: ['./employees.component.scss']
 })
-export class EmployeesComponent {
+export class EmployeesComponent implements OnInit{
     displayedColumns: string[] = ['position', 'name', 'weight', 'symbol','actions'];
-    dataSource = ELEMENT_DATA;
+    dataSource : MatTableDataSource<any> = new MatTableDataSource<any>([]);
+    searchText:any
+    totalCount: number = 0;
+    pageIndex: number = 0;
+    pageSize: number = Configs.getConfig('Paging_Size');
+    pageSizeOptions = Configs.getConfig('Paging_SizeOptions');
+    constructor(
+
+    ){
+
+    }
+
+    ngOnInit(): void {
+        this.fetch()
+    }
+    search(event){
+
+    }
+    add(){
+
+    }
+
+    fetch(){
+
+    }
+
+    pageEvent(event: PageEvent) {
+        this.pageSize = event.pageSize;
+        this.pageIndex = event.pageIndex;
+        this.fetch();
+    }
 }

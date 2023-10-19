@@ -1,11 +1,28 @@
-<mat-card class="w-[250px] h-[300px]">
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu" />
+<div class="h-full">
+    <div class="content-card mat-white-bg">
+        <div class="grid grid-cols-4 gap-4">
+            <div class="w-1/4 mx-2" *ngFor="let item of items">
+                <mat-card class="w-64 h-full rounded mt-4 flex flex-col">
+                    <div class="aspect-w-3 aspect-h-4 cursor-pointer" (click)="details(item)">
+                        <img mat-card-image class="object-cover w-full h-44" src="{{ item.picture }}"
+                            alt="Photo of a Shiba Inu" />
+                    </div>
+                    <mat-card-content class="flex justify-center cursor-pointer" (click)="details(item)">
+                        <strong>{{ item.name }}</strong>
+                    </mat-card-content>
 
-    <mat-card-content class="flex justify-center">
-        <strong>Doflamingo Cát Bà</strong>
-    </mat-card-content>
-
-    <mat-card-actions class="flex  justify-center items-center">
-        <button class="w-48" mat-button>Đặt phòng ❤️</button>
-    </mat-card-actions>
-</mat-card>
+                    <div class="flex flex-col justify-between h-full px-4 py-2">
+                        <div>
+                            <p class="mb-2">Địa điểm: {{ item.address }}</p>
+                            <p class="mb-2">Số phòng còn lại: {{ item.availableRooms }}</p>
+                        </div>
+                        <mat-card-actions class="flex justify-center items-center">
+                            <button class="w-full" mat-raised-button color="primary" (click)="bookRooms(item)">Đặt phòng
+                                ❤️</button>
+                        </mat-card-actions>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

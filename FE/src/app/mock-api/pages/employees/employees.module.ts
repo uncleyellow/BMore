@@ -4,6 +4,8 @@ import { EmployeesComponent } from './employees.component';
 import { MaterialModule } from 'app/material/material.module';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
+import { FormsModule } from '@angular/forms';
+import { CdkTableModule } from '@angular/cdk/table';
 
 const employeesRoutes: Route[] = [
     {
@@ -20,7 +22,9 @@ const employeesRoutes: Route[] = [
     ],
     imports     : [
         MaterialModule,
-        RouterModule.forChild(employeesRoutes)
+        RouterModule.forChild(employeesRoutes),
+        FormsModule,
+        CdkTableModule
     ]
 })
 export class EmployeesModule

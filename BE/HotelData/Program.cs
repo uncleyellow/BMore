@@ -1,4 +1,4 @@
-using HotelData.Context;
+﻿using HotelData.Context;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +11,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("hotels")));
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,6 +22,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 app.UseMiddleware<CorsMiddleware>();
 
 app.UseHttpsRedirection();
