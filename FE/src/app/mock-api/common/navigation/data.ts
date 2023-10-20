@@ -44,6 +44,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         icon: 'heroicons_outline:clipboard',
         link: '/rooms'
     },
+    {
+        id: 'example',
+        title: 'Ví dụ',
+        type: 'basic',
+        icon: 'heroicons_outline:clipboard',
+        link: '/example'
+    },
 ];
 export const compactNavigation: FuseNavigationItem[] = [
     {
