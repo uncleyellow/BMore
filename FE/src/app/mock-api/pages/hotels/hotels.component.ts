@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { DeleteHotelComponent } from './delete-hotel/delete-hotel.component';
 import { DetailsHotelComponent } from './details-hotel/details-hotel.component';
+import { AddHotelComponent } from './add-hotel/add-hotel.component';
 
 @Component({
     selector: 'app-hotels',
@@ -19,6 +20,7 @@ export class HotelsComponent implements OnInit {
     displayedColumns = ['id', 'image', 'name', 'address', 'totalRoom', 'roomAvaible', 'actions'];
     @ViewChild(MatPaginator) paginator: MatPaginator;
     user: any
+    selectedPlace: any
     constructor(
         private hotelsService: HotelsService,
         public dialog: MatDialog,
@@ -26,16 +28,16 @@ export class HotelsComponent implements OnInit {
         // this.user = false
         this.user = true
         this.items = [
-            {value : 1 , place :'Hà Nội'},
-            {value : 2 , place :'Cát Bà'},
-            {value : 3 , place :'Hải Phòng'},
-            {value : 4 , place :'Đà Nẵng'},
-            {value : 5 , place :'Sài Gòn'},
-            {value : 6 , place :'Nghệ An'},
-            {value : 7 , place :'Thanh Hoá'},
-            {value : 8 , place :'Nha Trang'},
-            {value : 9 , place :'Cần Thơ'},
-            {value : 10 , place :'Vĩnh Phúc'},
+            { place: 'Hà Nội' },
+            { place: 'Cát Bà' },
+            { place: 'Hải Phòng' },
+            { place: 'Đà Nẵng' },
+            { place: 'Sài Gòn' },
+            { place: 'Nghệ An' },
+            { place: 'Thanh Hoá' },
+            { place: 'Nha Trang' },
+            { place: 'Cần Thơ' },
+            { place: 'Vĩnh Phúc' },
         ]
     }
 
@@ -91,7 +93,15 @@ export class HotelsComponent implements OnInit {
     }
 
     search(searchParam) {
-
+        this.hotelsService.searchHotelsByName(searchParam).subscribe(
+            (result) => {
+                debugger
+                this.dataSource = result
+              },
+              (error) => {
+                console.error(error); // Xử lý lỗi nếu có
+              }
+        );
     }
 
     edit(item) {
@@ -104,6 +114,33 @@ export class HotelsComponent implements OnInit {
             data: {
                 title: 'Xoá khách sạn',
                 item: item
+            },
+        });
+
+        dialogRef.afterClosed().subscribe((result) => {
+            if (result) {
+                this.fetch();
+            }
+        });
+    }
+
+    searchByPlace(item) {
+        this.hotelsService.searchHotelsByPlace(item).subscribe(
+            (hotels: any) => {
+                // Xử lý danh sách khách sạn tìm thấy
+                this.dataSource = hotels
+            },
+            (error: any) => {
+                // Xử lý lỗi
+            }
+
+        )
+    }
+    addHotel(){
+        let dialogRef = this.dialog.open(AddHotelComponent, {
+            panelClass: "add-processcode-dialog",
+            data: {
+                title: 'Thêm mới khách sạn',
             },
         });
 

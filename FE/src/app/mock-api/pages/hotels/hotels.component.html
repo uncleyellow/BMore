@@ -1,20 +1,28 @@
 <div class="mat-elevation-z8">
-    <div class="search flex items-center mb-4 w-full">
-        <div class="relative flex items-center w-full">
-            <mat-icon class="absolute ml-3 text-gray-400">
-                search
-            </mat-icon>
-            <input type="text" [(ngModel)]="searchParam" style="background-color: #fff;"
-                class="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-5/12"
-                placeholder="Tìm kiếm khách sạn..." (keydown.enter)="search(searchParam)">
+    <div class="search flex items-center justify-between mb-4 w-full">
+        <div class="relative flex items-center w-1/3">
+            <div class="search-container flex items-center w-full">
+                <mat-icon class="absolute ml-3 text-gray-400">
+                    search
+                </mat-icon>
+                <input type="text" [(ngModel)]="searchParam" style="background-color: #fff;"
+                    class="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-full search-input"
+                    placeholder="Tìm kiếm khách sạn..." (keydown.enter)="search(searchParam)">
+            </div>
+        </div>
 
-            <mat-form-field class="w-4/12" class="search-by-place">
-                <mat-select placeholder="Tìm kiếm theo địa điểm">
-                    <mat-option *ngFor="let item of items" [value]="item.place">
-                        {{item.place}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+        <div class="w-1/3">
+            <select id="countries"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 search-select"
+                [(ngModel)]="selectedPlace" (change)="searchByPlace(selectedPlace)" placeholder="Tìm kiếm khách sạn theo địa điểm">
+                <option *ngFor="let item of items" [value]="item.place">{{ item.place }}</option>
+            </select>
+        </div>
+
+        <div class="w-1/4">
+            <button matTooltip="{{'Thêm mới khách sạn'}}" mat-raised-button color="primary" class="mr-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" (click)="addHotel()">
+                Thêm mới khách sạn
+            </button>
         </div>
     </div>
     <table mat-table [dataSource]="dataSource">
