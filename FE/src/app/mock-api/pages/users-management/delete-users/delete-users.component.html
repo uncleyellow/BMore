@@ -1,1 +1,8 @@
-<p>delete-users works!</p>
+<h2 mat-dialog-title class="justify-center flex">{{data.title}}</h2>
+<div mat-dialog-content>
+    <h2 mat-dialog-title class="justify-center flex items-center">Bạn có đồng ý xoá tài khoản này không</h2>
+</div>
+<div mat-dialog-actions class="justify-center flex">
+    <button mat-raised-button color="primary" (click)="save()">Đồng ý</button>
+    <button mat-raised-button color="warn" (click)="cancel()">Huỷ</button>
+</div>

@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
+import { UsersManagementService } from '../services/users-management.service';
 
 @Component({
     selector: 'app-delete-users',
@@ -12,27 +13,31 @@ export class DeleteUsersComponent {
     constructor(
         @Inject(MAT_DIALOG_DATA) public data: any,
         public dialogRef: MatDialogRef<DeleteUsersComponent>,
+        public usersManagementServices: UsersManagementService
     ) {
 
     }
 
     save() {
-        this.dialogRef.close()
+        this.usersManagementServices.deleteUser(this.data.item.id).subscribe(rs => {
+            this.dialogRef.close(rs)
+            this.processResponse(rs)
+        })
     }
 
     cancel() {
         this.dialogRef.close()
     }
 
-    processResponse() {
-        if (this.data.status == "success") {
+    processResponse(rs) {
+        if (rs) {
             Swal.fire({
                 toast: true,
                 position: 'top-end',
                 showConfirmButton: false,
                 timer: 3000,
                 timerProgressBar: true,
-                title: 'Đặt Phòng Thành Công',
+                title: 'Xoá Tài Khoản Thành Công',
                 icon: 'success',
             });
         } else {
@@ -42,7 +47,7 @@ export class DeleteUsersComponent {
                 showConfirmButton: false,
                 timer: 3000,
                 timerProgressBar: true,
-                title: 'Đặt Phòng Thất Bại',
+                title: 'Xoá Tài Khoản Thất Bại',
                 icon: 'error',
             });
         }

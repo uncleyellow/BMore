@@ -1,15 +1,19 @@
-<h2 mat-dialog-title>{{data.title}}</h2>
+<h2 mat-dialog-title class="justify-center flex">{{data.title}}</h2>
 <div mat-dialog-content>
-    <form>
-        <mat-form-field>
-            <input matInput placeholder="Họ và tên" [(ngModel)]="items.name">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Email" [(ngModel)]="items.email">
-        </mat-form-field>
-    </form>
+    <input type="text" [(ngModel)]="name" placeholder="Họ và tên">
+    <input type="email" [(ngModel)]="email" placeholder="Email">
+    <input type="text" [(ngModel)]="passWords" placeholder="Mật khẩu">
+    <input type="number" [(ngModel)]="phone" placeholder="Số điện thoại">
+    <select id="countries"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 search-select"
+        [(ngModel)]="selectedRole" (change)="searchRole(selectedRole)">
+        <option [ngValue]="undefined" [disabled]="true">Quyền</option>
+        <option *ngFor="let item of role" [value]="item.user">{{ item.user }}</option>
+    </select>
+    <input type="text" [(ngModel)]="address" placeholder="Địa chỉ">
+    <input type="text" [(ngModel)]="pictures" placeholder="Đường dẫn ảnh">
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions class="justify-center flex">
     <button mat-raised-button color="primary" (click)="save()">Lưu</button>
-    <button mat-button (click)="cancel()">Huỷ</button>
+    <button mat-raised-button color="warn" (click)="cancel()">Huỷ</button>
 </div>

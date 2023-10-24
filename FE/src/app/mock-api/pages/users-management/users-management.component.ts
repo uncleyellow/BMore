@@ -73,12 +73,13 @@ export class UsersManagementComponent implements OnInit {
         let dialogRef = this.dialog.open(DeleteUsersComponent, {
             panelClass: "add-processcode-dialog",
             data: {
-                title: 'Đặt phòng',
+                title: 'Xoá tài khoản',
                 item: item
             },
         });
 
         dialogRef.afterClosed().subscribe((result) => {
+            debugger
             if (result) {
                 this.fetch();
             }
