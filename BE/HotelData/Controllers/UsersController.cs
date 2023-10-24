@@ -70,6 +70,23 @@ namespace HotelData.Controllers
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
 
+
+        [HttpGet("searchUsers")]
+        public async Task<ActionResult<IEnumerable<User>>> SearchUserByUserName(string userName)
+        {
+            var hotels = await _context.Users
+                .Where(h => h.userName.Contains(userName))
+                .ToListAsync();
+
+            if (hotels.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return hotels;
+        }
+
+
         // PUT: api/users/1
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(Guid id, User user)
