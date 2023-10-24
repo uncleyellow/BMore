@@ -45,11 +45,11 @@ export const defaultNavigation: FuseNavigationItem[] = [
         link: '/rooms'
     },
     {
-        id: 'example',
-        title: 'Ví dụ',
+        id: 'usersManagement',
+        title: 'Quản lý tài khoản',
         type: 'basic',
         icon: 'heroicons_outline:clipboard',
-        link: '/example'
+        link: '/users-management'
     },
 ];
 export const compactNavigation: FuseNavigationItem[] = [
@@ -95,6 +95,13 @@ export const compactNavigation: FuseNavigationItem[] = [
         icon: 'heroicons_outline:chart-pie',
         link: '/rooms'
     },
+    {
+        id: 'usersManagement',
+        title: 'Quản lý tài khoản',
+        type: 'basic',
+        icon: 'heroicons_outline:clipboard',
+        link: '/users-management'
+    },
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
     {
@@ -139,6 +146,13 @@ export const futuristicNavigation: FuseNavigationItem[] = [
         icon: 'heroicons_outline:chart-pie',
         link: '/rooms'
     },
+    {
+        id: 'usersManagement',
+        title: 'Quản lý tài khoản',
+        type: 'basic',
+        icon: 'heroicons_outline:clipboard',
+        link: '/users-management'
+    },
 ];
 export const horizontalNavigation: FuseNavigationItem[] = [
     {
@@ -182,5 +196,12 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         type: 'basic',
         icon: 'heroicons_outline:chart-pie',
         link: '/rooms'
+    },
+    {
+        id: 'usersManagement',
+        title: 'Quản lý tài khoản',
+        type: 'basic',
+        icon: 'heroicons_outline:clipboard',
+        link: '/users-management'
     },
 ];

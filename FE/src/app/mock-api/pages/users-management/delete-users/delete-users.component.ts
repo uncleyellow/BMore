@@ -1,19 +1,21 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-add-hotel',
-  templateUrl: './add-hotel.component.html',
-  styleUrls: ['./add-hotel.component.scss']
+    selector: 'app-delete-users',
+    templateUrl: './delete-users.component.html',
+    styleUrls: ['./delete-users.component.scss']
 })
-export class AddHotelComponent {
+export class DeleteUsersComponent {
+
     constructor(
-        public dialogRef: MatDialogRef<AddHotelComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
+        public dialogRef: MatDialogRef<DeleteUsersComponent>,
     ) {
 
     }
+
     save() {
         this.dialogRef.close()
     }

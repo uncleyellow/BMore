@@ -139,5 +139,16 @@ export const appRoutes: Route[] = [
         children: [
             { path: 'rooms', loadChildren: () => import('./mock-api/pages/rooms/rooms.module').then(m => m.RoomsModule) },
         ]
+    },
+    {
+        path: '',
+        canMatch: [AuthGuard],
+        component: LayoutComponent,
+        resolve: {
+            initialData: InitialDataResolver,
+        },
+        children: [
+            { path: 'users-management', loadChildren: () => import('./mock-api/pages/users-management/users-management.module').then(m => m.UsersManagementModule) },
+        ]
     }
 ];

@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+<div mat-dialog-content>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Họ và tên" [(ngModel)]="items.name">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Email" [(ngModel)]="items.email">
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="save()">Lưu</button>
+    <button mat-button (click)="cancel()">Huỷ</button>
+</div>

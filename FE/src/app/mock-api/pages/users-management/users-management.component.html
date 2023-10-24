@@ -1,0 +1,115 @@
+<div class="mat-elevation-z8">
+    <div class="search flex items-center justify-start mb-4 w-full">
+        <div class="relative flex items-center w-1/3">
+            <div class="search-container flex items-center w-full">
+                <mat-icon class="absolute ml-3 text-gray-400">
+                    search
+                </mat-icon>
+                <input type="text" [(ngModel)]="searchParam" style="background-color: #fff;"
+                    class="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-full search-input"
+                    placeholder="Tìm kiếm nhân viên..." (keydown.enter)="search(searchParam)">
+            </div>
+        </div>
+
+        <div class="w-1/4 pl-0.5">
+            <button matTooltip="{{'Thêm mới tài khoản'}}" mat-raised-button color="primary"
+                class="mr-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" (click)="addUser()">
+                Thêm mới tài khoản
+            </button>
+        </div>
+    </div>
+    <table mat-table [dataSource]="dataSource">
+        <!-- STT Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef class="text-sm w-8"> STT </th>
+            <td mat-cell *matCellDef="let item; let i = index;">
+                <p class="text-truncate">
+                    {{i + 1}}
+                </p>
+            </td>
+        </ng-container>
+
+        <!-- Ảnh Column -->
+        <ng-container matColumnDef="image">
+            <th mat-header-cell *matHeaderCellDef class="text-sm w-80"> Họ và tên </th>
+            <td mat-cell *matCellDef="let item">
+                <p class="text-truncate">
+                    {{item.userName}}
+                </p>
+            </td>
+        </ng-container>
+
+        <!-- Tên Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef class="w-52 text-sm"> Email </th>
+            <td mat-cell *matCellDef="let item">
+                <p class="text-truncate">
+                    {{item.email}}
+                </p>
+            </td>
+        </ng-container>
+
+        <!-- Địa chỉ Column -->
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef class="w-36 text-sm"> Quyền </th>
+            <td mat-cell *matCellDef="let item">
+                <p class="text-truncate">
+                    {{item.role}}
+                </p>
+            </td>
+        </ng-container>
+
+        <!-- Tổng Số Phòng Column -->
+        <ng-container matColumnDef="totalRoom">
+            <th mat-header-cell *matHeaderCellDef class="w-48 text-sm"> Số điện thoại </th>
+            <td mat-cell *matCellDef="let item">
+                <p class="text-truncate">
+                    {{item.phoneNumbers}}
+                </p>
+            </td>
+        </ng-container>
+
+        <!-- Số Phòng còn lại Column -->
+        <ng-container matColumnDef="roomAvaible">
+            <th mat-header-cell *matHeaderCellDef class="w-48 text-sm"> Nơi ở </th>
+            <td mat-cell *matCellDef="let item">
+                <p class="text-truncate">
+                    {{item.address}}
+                </p>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="creatAt">
+            <th mat-header-cell *matHeaderCellDef class="w-48 text-sm"> Ngày tạo </th>
+            <td mat-cell *matCellDef="let item">
+                <p class="text-truncate">
+                    {{item.creatAt | date:'dd/MM/yyyy'}}
+                </p>
+            </td>
+        </ng-container>
+
+        <!-- Hành động Column -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef class="w-10 text-sm">{{'Hành động'}}</th>
+            <td mat-cell *matCellDef="let item">
+                <div class="flex">
+                    <button matTooltip="{{'Xem chi tiết'}}" mat-raised-button color="primary" (click)="details(item)"
+                        class="mr-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                        <mat-icon>remove_red_eye</mat-icon>
+                    </button>
+                    <button matTooltip="{{'Sửa'}}" mat-raised-button color="primary" (click)="editUser(item)"
+                        class="mr-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                        <mat-icon>home</mat-icon>
+                    </button>
+                    <button matTooltip="{{'Xoá'}}" mat-raised-button color="warn" (click)="delete(item)"
+                        class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let item; columns: displayedColumns;"></tr>
+    </table>
+</div>

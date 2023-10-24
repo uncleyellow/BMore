@@ -15,28 +15,35 @@ export class BookRoomComponent {
     ) {
 
     }
+    save() {
+        this.dialogRef.close()
+    }
+
+    cancel() {
+        this.dialogRef.close()
+    }
 
     processResponse() {
         if (this.data.status == "success") {
             Swal.fire({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              title: 'Đặt Phòng Thành Công',
-              icon: 'success',
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                title: 'Đặt Phòng Thành Công',
+                icon: 'success',
             });
-          } else {
+        } else {
             Swal.fire({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              title: 'Đặt Phòng Thất Bại',
-              icon: 'error',
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                title: 'Đặt Phòng Thất Bại',
+                icon: 'error',
             });
-          }
+        }
     }
 }
