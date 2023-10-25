@@ -18,7 +18,7 @@ export class AddUsersComponent {
     address: any
     pictures: any
     selectedRole: any
-    id:any
+    id: any
     constructor(
         @Inject(MAT_DIALOG_DATA) public data: any,
         public dialogRef: MatDialogRef<AddUsersComponent>,
@@ -33,6 +33,14 @@ export class AddUsersComponent {
         ]
         if (data.isEdit) {
             this.isEdit = true
+            this.id = this.data.item.id
+            this.name = this.data.item.userName
+            this.selectedRole = this.data.item.role
+            this.email = this.data.item.email
+            this.passWords = this.data.item.passWords
+            this.address = this.data.item.address
+            this.phone = this.data.item.phoneNumbers
+            this.pictures = this.data.item.pictures
         }
     }
 
@@ -47,12 +55,16 @@ export class AddUsersComponent {
             phoneNumbers: this.phone,
             pictures: this.pictures,
             creatAt: new Date(),
-          };
-        this.usersManagementServices.createUser(item).subscribe(rs => {
-            this.dialogRef.close(rs)
-            this.processResponse(rs)
-        })
-        this.dialogRef.close()
+        };
+        if (!this.isEdit) {
+            this.usersManagementServices.createUser(item).subscribe(rs => {
+                this.dialogRef.close(rs)
+                this.processResponse(rs)
+            })
+        }
+        else {
+
+        }
     }
 
     cancel() {

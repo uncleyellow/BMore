@@ -1,1 +1,15 @@
-<p>add-hotel works!</p>
+<h2 mat-dialog-title class="justify-center flex">{{data.title}}</h2>
+<div mat-dialog-content>
+    <input type="text" [(ngModel)]="name" placeholder="Tên khách sạn">
+    <input type="email" [(ngModel)]="address" placeholder="Địa chỉ">
+    <!-- <input type="number" [(ngModel)]="roomNumbers" placeholder="Tổng số phòng"> -->
+    <input type="text" [(ngModel)]="pictures" placeholder="Đường dẫn ảnh">
+    <input type="text" [(ngModel)]="descriptions" placeholder="Mô tả">
+    <input type="number" [(ngModel)]="totalRooms" placeholder="Tổng số phòng">
+    <input type="number" [(ngModel)]="availableRooms" placeholder="Số phòng còn lại">
+    <input type="number" [(ngModel)]="bookedRooms" placeholder="Số phòng đã đặt">
+</div>
+<div mat-dialog-actions class="justify-center flex">
+    <button mat-raised-button color="primary" (click)="save()">Lưu</button>
+    <button mat-raised-button color="warn" (click)="cancel()">Huỷ</button>
+</div>

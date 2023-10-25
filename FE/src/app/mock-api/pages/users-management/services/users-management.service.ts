@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -29,5 +29,12 @@ export class UsersManagementService {
         const headers = new HttpHeaders().set('accept', '*/*');
 
         return this.http.delete(`${this.apiUrl}/${userId}`, { headers });
+    }
+
+    searchUsers(userName: string): Observable<any> {
+        const headers = new HttpHeaders().set('accept', 'text/plain');
+        const params = new HttpParams().set('userName', userName);
+
+        return this.http.get(`${this.apiUrl}/searchUsers`, { headers, params });
     }
 }

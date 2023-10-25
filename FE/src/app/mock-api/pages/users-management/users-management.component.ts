@@ -79,7 +79,6 @@ export class UsersManagementComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe((result) => {
-            debugger
             if (result) {
                 this.fetch();
             }
@@ -87,7 +86,15 @@ export class UsersManagementComponent implements OnInit {
     }
 
     search(item) {
-
+        this.usersMangementServices.searchUsers(item).subscribe(
+            response => {
+                // Xử lý phản hồi thành công
+                this.dataSource = response
+            },
+            error => {
+                // Xử lý lỗi
+            }
+        );
     }
 
     addUser() {

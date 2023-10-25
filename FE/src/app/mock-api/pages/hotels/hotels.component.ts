@@ -105,7 +105,19 @@ export class HotelsComponent implements OnInit {
     }
 
     edit(item) {
+        let dialogRef = this.dialog.open(AddHotelComponent, {
+            panelClass: "add-processcode-dialog",
+            data: {
+                title: 'Sửa khách sạn',
+                item: item
+            },
+        });
 
+        dialogRef.afterClosed().subscribe((result) => {
+            if (result) {
+                this.fetch();
+            }
+        });
     }
 
     delete(item) {
@@ -118,7 +130,7 @@ export class HotelsComponent implements OnInit {
         });
 
         dialogRef.afterClosed().subscribe((result) => {
-            if (result) {
+            if (result == null) {
                 this.fetch();
             }
         });
