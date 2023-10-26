@@ -24,11 +24,10 @@ export class UsersManagementService {
 
         return this.http.post(this.apiUrl, user, { headers });
     }
-
     deleteUser(userId: string): Observable<any> {
         const headers = new HttpHeaders().set('accept', '*/*');
 
-        return this.http.delete(`${this.apiUrl}/${userId}`, { headers });
+        return this.http.delete(`${this.apiUrl}/${userId}`, { headers, responseType: 'text' });
     }
 
     searchUsers(userName: string): Observable<any> {
@@ -36,5 +35,13 @@ export class UsersManagementService {
         const params = new HttpParams().set('userName', userName);
 
         return this.http.get(`${this.apiUrl}/searchUsers`, { headers, params });
+    }
+
+    updateUser(user: any): Observable<any> {
+        const headers = new HttpHeaders()
+            .set('Content-Type', 'application/json')
+            .set('accept', '*/*');
+
+        return this.http.put(`${this.apiUrl}/${user.id}`, user, { headers });
     }
 }

@@ -2,7 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { UsersManagementService } from '../services/users-management.service';
-
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 @Component({
     selector: 'app-add-users',
     templateUrl: './add-users.component.html',
@@ -44,7 +45,22 @@ export class AddUsersComponent {
         }
     }
 
+    checkEmailAndPhoneDuplicate(): Observable<boolean> {
+        const email = this.email;
+        const phone = this.phone;
+
+        return this.usersManagementServices.getUsers().pipe(
+            map((users: any[]) => {
+                const duplicateEmail = users.some(user => user.email === email);
+                const duplicatePhone = users.some(user => user.phoneNumbers === phone);
+                return duplicateEmail || duplicatePhone;
+            })
+        );
+    }
+
+
     save() {
+        this.checkEmailAndPhoneDuplicate()
         const item = {
             id: this.id,
             userName: this.name,
@@ -57,13 +73,32 @@ export class AddUsersComponent {
             creatAt: new Date(),
         };
         if (!this.isEdit) {
-            this.usersManagementServices.createUser(item).subscribe(rs => {
-                this.dialogRef.close(rs)
-                this.processResponse(rs)
+            this.checkEmailAndPhoneDuplicate().subscribe(duplicate => {
+                if (duplicate) {
+                    Swal.fire({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        title: 'Email Hoặc Số Điện Thoại Đã Tồn Tại',
+                        icon: 'error',
+                    });
+                    return
+                }
+                else {
+                    this.usersManagementServices.createUser(item).subscribe(rs => {
+                        this.dialogRef.close(rs)
+                        this.processResponse(rs)
+                    })
+                }
             })
         }
         else {
-
+            this.usersManagementServices.updateUser(item).subscribe(rs => {
+                this.dialogRef.close(rs)
+                this.processResponse(rs)
+            })
         }
     }
 
@@ -72,7 +107,8 @@ export class AddUsersComponent {
     }
 
     processResponse(rs) {
-        if (rs) {
+        debugger
+        if (rs && !this.isEdit) {
             Swal.fire({
                 toast: true,
                 position: 'top-end',
@@ -82,16 +118,31 @@ export class AddUsersComponent {
                 title: 'Thêm mới tài khoản thành công',
                 icon: 'success',
             });
-        } else {
+            return
+        }
+        if (rs && this.isEdit) {
             Swal.fire({
                 toast: true,
                 position: 'top-end',
                 showConfirmButton: false,
                 timer: 3000,
                 timerProgressBar: true,
-                title: 'Đặt Phòng Thất Bại',
+                title: 'Sửa tài khoản thành công',
+                icon: 'success',
+            });
+            return
+        }
+        else {
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                title: 'Hành động Thất Bại',
                 icon: 'error',
             });
+            return
         }
     }
 

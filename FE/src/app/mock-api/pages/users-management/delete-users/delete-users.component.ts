@@ -19,7 +19,9 @@ export class DeleteUsersComponent {
     }
 
     save() {
+        debugger
         this.usersManagementServices.deleteUser(this.data.item.id).subscribe(rs => {
+            debugger
             this.dialogRef.close(rs)
             this.processResponse(rs)
         })
