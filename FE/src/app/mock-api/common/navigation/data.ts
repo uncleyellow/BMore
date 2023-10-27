@@ -11,7 +11,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },
     {
         id: 'employees',
-        title: 'Nhân Viên',
+        title: 'Quản Lý Nhân Viên',
         type: 'basic',
         icon: 'heroicons_outline:user-group',
         link: '/employees'
@@ -25,7 +25,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },
     {
         id: 'profiles',
-        title: 'Thông Người Dùng',
+        title: 'Thông Người Tin Dùng',
         type: 'basic',
         icon: 'heroicons_outline:user',
         link: '/profiles'
@@ -62,7 +62,7 @@ export const compactNavigation: FuseNavigationItem[] = [
     },
     {
         id: 'employees',
-        title: 'Nhân Viên',
+        title: 'Quản Lý Nhân Viên',
         type: 'basic',
         icon: 'heroicons_outline:chart-pie',
         link: '/employees'
@@ -76,7 +76,7 @@ export const compactNavigation: FuseNavigationItem[] = [
     },
     {
         id: 'profiles',
-        title: 'Thông Người Dùng',
+        title: 'Thông Người Tin Dùng',
         type: 'basic',
         icon: 'heroicons_outline:chart-pie',
         link: '/profiles'
@@ -113,7 +113,7 @@ export const futuristicNavigation: FuseNavigationItem[] = [
     },
     {
         id: 'employees',
-        title: 'Nhân Viên',
+        title: 'Quản Lý Nhân Viên',
         type: 'basic',
         icon: 'heroicons_outline:chart-pie',
         link: '/employees'
@@ -127,7 +127,7 @@ export const futuristicNavigation: FuseNavigationItem[] = [
     },
     {
         id: 'profiles',
-        title: 'Thông Người Dùng',
+        title: 'Thông Người Tin Dùng',
         type: 'basic',
         icon: 'heroicons_outline:chart-pie',
         link: '/profiles'
@@ -164,7 +164,7 @@ export const horizontalNavigation: FuseNavigationItem[] = [
     },
     {
         id: 'employees',
-        title: 'Nhân Viên',
+        title: 'Quản Lý Nhân Viên',
         type: 'basic',
         icon: 'heroicons_outline:chart-pie',
         link: '/employees'
@@ -178,7 +178,7 @@ export const horizontalNavigation: FuseNavigationItem[] = [
     },
     {
         id: 'profiles',
-        title: 'Thông Người Dùng',
+        title: 'Thông Người Tin Dùng',
         type: 'basic',
         icon: 'heroicons_outline:chart-pie',
         link: '/profiles'

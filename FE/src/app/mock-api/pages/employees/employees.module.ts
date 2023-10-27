@@ -26,13 +26,13 @@ const employeesRoutes: Route[] = [
         ManagementEmployeesComponent
     ],
     imports     : [
-        MaterialModule,
-        RouterModule.forChild(employeesRoutes),
         CommonModule,
         MatTableModule,
+        MaterialModule,
         CdkTreeModule,
         FormsModule,
         FlexLayoutModule,
+        RouterModule.forChild(employeesRoutes)
     ]
 })
 export class EmployeesModule
