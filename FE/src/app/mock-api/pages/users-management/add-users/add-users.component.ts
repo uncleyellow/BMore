@@ -45,22 +45,9 @@ export class AddUsersComponent {
         }
     }
 
-    checkEmailAndPhoneDuplicate(): Observable<boolean> {
-        const email = this.email;
-        const phone = this.phone;
-
-        return this.usersManagementServices.getUsers().pipe(
-            map((users: any[]) => {
-                const duplicateEmail = users.some(user => user.email === email);
-                const duplicatePhone = users.some(user => user.phoneNumbers === phone);
-                return duplicateEmail || duplicatePhone;
-            })
-        );
-    }
 
 
     save() {
-        this.checkEmailAndPhoneDuplicate()
         const item = {
             id: this.id,
             userName: this.name,
@@ -73,25 +60,13 @@ export class AddUsersComponent {
             creatAt: new Date(),
         };
         if (!this.isEdit) {
-            this.checkEmailAndPhoneDuplicate().subscribe(duplicate => {
-                if (duplicate) {
-                    Swal.fire({
-                        toast: true,
-                        position: 'top-end',
-                        showConfirmButton: false,
-                        timer: 3000,
-                        timerProgressBar: true,
-                        title: 'Email Hoặc Số Điện Thoại Đã Tồn Tại',
-                        icon: 'error',
-                    });
-                    return
+            this.usersManagementServices.createUser(item).subscribe(rs => {
+                this.dialogRef.close(rs)
+                this.processResponse(rs)
+                error =>{
+                    this.processResponse(error)
                 }
-                else {
-                    this.usersManagementServices.createUser(item).subscribe(rs => {
-                        this.dialogRef.close(rs)
-                        this.processResponse(rs)
-                    })
-                }
+
             })
         }
         else {
@@ -107,7 +82,6 @@ export class AddUsersComponent {
     }
 
     processResponse(rs) {
-        debugger
         if (rs && !this.isEdit) {
             Swal.fire({
                 toast: true,
@@ -129,6 +103,18 @@ export class AddUsersComponent {
                 timerProgressBar: true,
                 title: 'Sửa tài khoản thành công',
                 icon: 'success',
+            });
+            return
+        }
+        if(rs == 'Đã tồn tại Email hoặc Số điện thoại'){
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                title: 'Email Hoặc Số Điện Thoại Đã Tồn Tại',
+                icon: 'error',
             });
             return
         }

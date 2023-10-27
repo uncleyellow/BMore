@@ -14,33 +14,36 @@
         <div class="w-1/3">
             <select id="countries"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 search-select"
-                [(ngModel)]="selectedPlace" (change)="searchByPlace(selectedPlace)" placeholder="Tìm kiếm khách sạn theo địa điểm">
+                [(ngModel)]="selectedPlace" (change)="search(selectedPlace)"
+                placeholder="Tìm kiếm khách sạn theo địa điểm">
+                <option [ngValue]="undefined" [disabled]="true">Địa điểm</option>
                 <option *ngFor="let item of items" [value]="item.place">{{ item.place }}</option>
             </select>
         </div>
 
         <div class="w-1/4">
-            <button matTooltip="{{'Thêm mới khách sạn'}}" mat-raised-button color="primary" class="mr-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" (click)="addHotel()">
+            <button matTooltip="{{'Thêm mới khách sạn'}}" mat-raised-button color="primary"
+                class="mr-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" (click)="addHotel()">
                 Thêm mới khách sạn
             </button>
         </div>
     </div>
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource" class="table-auto w-full">
         <!-- STT Column -->
-        <ng-container matColumnDef="id">
+        <!-- <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef class="text-sm w-8"> STT </th>
             <td mat-cell *matCellDef="let item; let i = index;">
                 <p class="text-truncate">
                     {{i + 1}}
                 </p>
             </td>
-        </ng-container>
+        </ng-container> -->
 
         <!-- Ảnh Column -->
         <ng-container matColumnDef="image">
             <th mat-header-cell *matHeaderCellDef class="text-sm w-60"> Hình ảnh </th>
             <td mat-cell *matCellDef="let item">
-                <img style="border-radius: 15px; height: 150px;" src="{{item.picture}} " alt="{{item.picture}}">
+                <img style="height: 150px;" src="{{item.picture}} " alt="{{item.picture}}">
             </td>
         </ng-container>
 
@@ -86,7 +89,7 @@
 
         <!-- Hành động Column -->
         <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef class="w-10 text-sm">{{'Hành động'}}</th>
+            <th mat-header-cell *matHeaderCellDef class="w-10 text-sm">{{''}}</th>
             <td mat-cell *matCellDef="let item">
                 <div class="flex">
                     <button matTooltip="{{'Sửa'}}" mat-raised-button color="primary" (click)="edit(item)"

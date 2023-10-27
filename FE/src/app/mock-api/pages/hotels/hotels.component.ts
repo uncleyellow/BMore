@@ -17,7 +17,7 @@ export class HotelsComponent implements OnInit {
     items: any[] = []
     searchParam: any
     dataSource: MatTableDataSource<any> = new MatTableDataSource<any>([]);
-    displayedColumns = ['id', 'image', 'name', 'address', 'totalRoom', 'roomAvaible', 'actions'];
+    displayedColumns = ['image', 'name', 'address', 'totalRoom', 'roomAvaible', 'actions'];
     @ViewChild(MatPaginator) paginator: MatPaginator;
     user: any
     selectedPlace: any
@@ -93,14 +93,14 @@ export class HotelsComponent implements OnInit {
     }
 
     search(searchParam) {
-        this.hotelsService.searchHotelsByName(searchParam).subscribe(
+        this.hotelsService.search(searchParam).subscribe(
             (result) => {
                 debugger
                 this.dataSource = result
-              },
-              (error) => {
+            },
+            (error) => {
                 console.error(error); // Xử lý lỗi nếu có
-              }
+            }
         );
     }
 
@@ -136,19 +136,8 @@ export class HotelsComponent implements OnInit {
         });
     }
 
-    searchByPlace(item) {
-        this.hotelsService.searchHotelsByPlace(item).subscribe(
-            (hotels: any) => {
-                // Xử lý danh sách khách sạn tìm thấy
-                this.dataSource = hotels
-            },
-            (error: any) => {
-                // Xử lý lỗi
-            }
 
-        )
-    }
-    addHotel(){
+    addHotel() {
         let dialogRef = this.dialog.open(AddHotelComponent, {
             panelClass: "add-processcode-dialog",
             data: {

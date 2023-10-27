@@ -17,14 +17,9 @@ export class HotelsService {
         return this.http.get(this.apiUrl);
     }
 
-    searchHotelsByPlace(address: string): Observable<any> {
+    search(address: string): Observable<any> {
         const encodedAddress = encodeURIComponent(address);
-        const url = `${this.apiUrl}/searchByPlace?address=${encodedAddress}`;
-        return this.http.get(url);
-    }
-
-    searchHotelsByName(name: string): Observable<any> {
-        const url = `${this.apiUrl}/search?name=${name}`;
+        const url = `${this.apiUrl}/search?search=${encodedAddress}`;
         return this.http.get(url);
     }
 
@@ -40,5 +35,9 @@ export class HotelsService {
         const headers = new HttpHeaders().set('accept', '*/*');
 
         return this.http.delete(`${this.apiUrl}/${hotelId}`, { headers });
+    }
+
+    updateHotel(hotelData: any): Observable<any> {
+        return this.http.put<any>(`${this.apiUrl}/${hotelData.id}`, hotelData);
     }
 }

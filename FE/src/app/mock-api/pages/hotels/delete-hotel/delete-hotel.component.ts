@@ -18,7 +18,6 @@ export class DeleteHotelComponent {
     }
     save() {
         this.hotelsService.deleteHotel(this.data.item.id).subscribe(rs => {
-            debugger
             this.dialogRef.close(rs)
             this.processResponse(rs)
         })

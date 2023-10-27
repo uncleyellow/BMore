@@ -38,10 +38,10 @@ namespace HotelData.Controllers
         }
         // GET: api/hotels/search?name={name}
         [HttpGet("search")]
-        public async Task<ActionResult<IEnumerable<Hotels>>> SearchHotelsByName(string name)
+        public async Task<ActionResult<IEnumerable<Hotels>>> SearchHotels(string search)
         {
             var hotels = await _context.Hotels
-                .Where(h => h.Name.Contains(name))
+                .Where(h => h.Name.Contains(search) || h.Address.Contains(search))
                 .ToListAsync();
 
             if (hotels.Count == 0)
@@ -51,21 +51,7 @@ namespace HotelData.Controllers
 
             return hotels;
         }
-        // GET: api/hotels/search?name={name}
-        [HttpGet("searchByPlace")]
-        public async Task<ActionResult<IEnumerable<Hotels>>> SearchHotelsByPlace(string address)
-        {
-            var hotels = await _context.Hotels
-                .Where(h => h.Address.Contains(address))
-                .ToListAsync();
-
-            if (hotels.Count == 0)
-            {
-                return NotFound();
-            }
-
-            return hotels;
-        }
+       
         // POST: api/hotels
         [HttpPost]
         public async Task<ActionResult<Hotels>> CreateHotel(Hotels hotels)

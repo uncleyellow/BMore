@@ -39,7 +39,12 @@ namespace HotelData.Controllers
 
             foreach (var item in lstUsers)
             {
-                item.Hotels = lstHotels.Where(x => x.UserId.Equals(item.Id)).ToList();
+                if(item.Role == "admin")
+                {
+                    item.Hotels = lstHotels.Where(x => x.UserId.Equals(item.Id)).ToList();
+                    continue;
+                }
+                item.Hotels = lstHotels.Where(x => x.Id.Equals(item.HotelsId)).ToList();
             }
 
             return lstUsers;
@@ -59,11 +64,17 @@ namespace HotelData.Controllers
             return user;
         }
 
+
         // POST: api/users
         [HttpPost]
         public async Task<ActionResult<User>> CreateUser(User user)
         {
             user.Id = Guid.NewGuid();
+            var user2 = await _context.Users.AnyAsync(a => a.Email.Equals(user.Email) || a.PhoneNumbers.Equals(user.PhoneNumbers));
+            if (user2)
+            {
+                return BadRequest("Đã tồn tại Email hoặc Số điện thoại");
+            }
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
@@ -71,11 +82,11 @@ namespace HotelData.Controllers
         }
 
 
-        [HttpGet("searchUsers")]
-        public async Task<ActionResult<IEnumerable<User>>> SearchUserByUserName(string userName)
+        [HttpGet("search")]
+        public async Task<ActionResult<IEnumerable<User>>> SearchUser(string search)
         {
             var hotels = await _context.Users
-                .Where(h => h.userName.Contains(userName))
+                .Where(h => h.userName.Contains(search) || h.Sex.Contains(search))
                 .ToListAsync();
 
             if (hotels.Count == 0)
@@ -85,6 +96,7 @@ namespace HotelData.Controllers
 
             return hotels;
         }
+
 
 
         // PUT: api/users/1

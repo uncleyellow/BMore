@@ -5,7 +5,11 @@ import { MaterialModule } from 'app/material/material.module';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import { FormsModule } from '@angular/forms';
-import { CdkTableModule } from '@angular/cdk/table';
+import { CdkTreeModule } from '@angular/cdk/tree';
+import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatTableModule } from '@angular/material/table';
+import { ManagementEmployeesComponent } from './management-employees/management-employees.component';
 
 const employeesRoutes: Route[] = [
     {
@@ -18,13 +22,17 @@ const employeesRoutes: Route[] = [
     declarations: [
         EmployeesComponent,
         AddEmployeeComponent,
-        DeleteEmployeeComponent
+        DeleteEmployeeComponent,
+        ManagementEmployeesComponent
     ],
     imports     : [
         MaterialModule,
         RouterModule.forChild(employeesRoutes),
+        CommonModule,
+        MatTableModule,
+        CdkTreeModule,
         FormsModule,
-        CdkTableModule
+        FlexLayoutModule,
     ]
 })
 export class EmployeesModule
